@@ -43,7 +43,7 @@ class StudentController {
   }
 
   static deletestudent(req,res){
-      let stdId = parseInt(req.params.id)
+      let stdId = req.params.id;
       let sql = `DELETE FROM student WHERE id = ${stdId}`
       connection.query(sql, function (err, result) {
         if (err) throw err;
@@ -55,7 +55,7 @@ class StudentController {
   }
 
   static updateStudent(req,res) {
-      let stdId = parseInt(req.params.id)
+      let stdId = req.params.id;
       let sql = `UPDATE student SET ? WHERE id = ${stdId}`
       connection.query(sql, req.body, function (err, result) {
         if (err) throw err;
