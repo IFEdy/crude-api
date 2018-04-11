@@ -7,7 +7,7 @@ var connection = mysql.createConnection({
   database: "school"
 });
 
-export default class StudentController {
+class StudentController {
   static create (req, res) {
       let sql = "INSERT INTO student SET ?";
       connection.query(sql, req.body, function (err, result) {
@@ -66,3 +66,4 @@ export default class StudentController {
     })
   }
 }
+module.exports = StudentController;

@@ -1,4 +1,4 @@
-const StudentController = require("./controller/students");
+const StudentController = require ("../controller/students");
 
 
 const Route = function(app){
