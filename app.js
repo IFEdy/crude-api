@@ -4,6 +4,12 @@ const logger = require("morgan");
 const bodyParser = require("body-parser");
 const mysql = require("mysql");
 const Route = require("./routes/index");
+const redis = require("redis"),
+      client = redis.createClient();
+
+client.on("error", function (err) {
+    console.log("Error " + err);
+});
 
 var app = express();
 
