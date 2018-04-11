@@ -4,12 +4,6 @@ const logger = require("morgan");
 const bodyParser = require("body-parser");
 const mysql = require("mysql");
 const Route = require("./routes/index");
-const redis = require("redis"),
-      client = redis.createClient();
-
-client.on("error", function (err) {
-    console.log("Error " + err);
-});
 
 var app = express();
 
@@ -23,9 +17,7 @@ Route(app);
 app.get('/', function(req, res) {
     res.status(202).send({ message: 'This API supplies student details' })
 });
-client.get('/', function(value){
-    console.log(value);
-});
+
 
 app.get('*', function (req, res){
      response.status(404).send({message: 'The Route is invalid',})

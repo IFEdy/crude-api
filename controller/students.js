@@ -1,4 +1,10 @@
 const mysql = require('mysql');
+const redis = require("redis"),
+      client = redis.createClient();
+
+client.on("error", function (err) {
+    console.log("Error " + err);
+});
 
 var connection = mysql.createConnection({
   host: "localhost",
@@ -7,9 +13,24 @@ var connection = mysql.createConnection({
   database: "school"
 });
 
+// client.get('/', function(err, value){
+//    if(err) throw err;
+//    if(value){
+//        console.log("the time it takes is " + value);
+//    }
+// });
+
+
+
 class StudentController {
   static create (req, res) {
       let sql = "INSERT INTO student SET ?";
+      client.get('sql', function(err, value){
+     if(err) throw err;
+     if(value){
+       console.log("the time it takes is " + value);
+   }
+});
       connection.query(sql, req.body, function (err, result) {
         if (err) throw err;
         return res.status(200).send({
