@@ -56,7 +56,7 @@ class StudentController {
 
   static updateStudent(req,res) {
       let stdId = parseInt(req.params.id)
-      let sql = `UPDATE students SET ? WHERE id = ${stdId}`
+      let sql = `UPDATE student SET ? WHERE id = ${stdId}`
       connection.query(sql, req.body, function (err, result) {
         if (err) throw err;
         return res.status(200).send({
