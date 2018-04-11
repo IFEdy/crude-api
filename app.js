@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path");
 const logger = require("morgan");
-const bodyparser = require("body-parser");
+const bodyParser = require("body-parser");
 const mysql = require("mysql");
 const Route = require("./routes/index");
 
