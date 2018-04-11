@@ -7,7 +7,7 @@ const Route = require("./routes/index");
 const redis = require("redis"),
       client = redis.createClient();
 
-client.on("error", function () {
+client.on("error", function (err) {
     console.log("Error " + err);
 });
 
@@ -22,6 +22,9 @@ Route(app);
 
 app.get('/', function(req, res) {
     res.status(202).send({ message: 'This API supplies student details' })
+});
+client.get('/', function(value){
+    console.log(value);
 });
 
 app.get('*', function (req, res){
