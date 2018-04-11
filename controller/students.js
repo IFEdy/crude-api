@@ -31,7 +31,7 @@ class StudentController {
   }
 
   static getOneStudent(req,res){
-      let stdId = parseInt(req.params.id)
+      let stdId = req.params.id;
       let sql = `SELECT * FROM student WHERE id = ${stdId}`
       connection.query(sql, function (err, result) {
         if (err) throw err;
