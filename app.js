@@ -7,7 +7,7 @@ const Route = require("./routes/index");
 const redis = require("redis"),
       client = redis.createClient();
 
-client.on("error", function (err) {
+client.on("error", function () {
     console.log("Error " + err);
 });
 
