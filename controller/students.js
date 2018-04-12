@@ -19,10 +19,10 @@ class StudentController {
       let sql = "INSERT INTO student SET ?";
       connection.query(sql, req.body, function (err, result) {
         if (err) throw err;
-        return (res.status(200).send({
+        return res.status(200).send({
           message: 'successful',
           data: `${result.insertId} inserted`
-        }), client.get(result, result.insertId, redis.print));
+        });
 
       });
   }
@@ -30,10 +30,10 @@ class StudentController {
   static getAllStudents(req, res) {
       connection.query("SELECT * FROM student", function (err, result, fields) {
         if (err) throw err;
-        return (res.status(200).send({
+        return res.status(200).send({
           message: 'successful',
           data: result
-        }), client.get(result, result.insertId, redis.print));
+        });
     })
   }
 
